@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  SubCategory SubCategory[]
+}
+
+model SubCategory {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  categoryId String   @map("questionId") @db.ObjectId
+  Category   Category @relation(fields: [categoryId], references: [id])
+}
+
+model Client {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  imageUrl   String?
+  profession String?
+  link       String?
+  Testimoni  Testimoni[]
+}
+
+model Testimoni {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  food        Int    @default(0)
+  drink       Int    @default(0)
+  environment Int    @default(0)
+
+  Text     String
+  clientId String @map("clientId") @db.ObjectId
+  Client   Client @relation(fields: [clientId], references: [id])
+}
+
+model Product {
+  id             String          @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  slug           String
+  imageUrl       String
+  ingredients    String?
+  description    String
+  price          Int             @default(0)
+  ProductOptions ProductOption[]
+}
+
+model Option {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+
+  ProductOption ProductOption[]
+}
+
+model AdditionalOption {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  price Int
+}
+
+model ProductOption {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  productId String @map("productId") @db.ObjectId
+  optionId  String @map("optionId") @db.ObjectId
+
+  Products Product @relation(fields: [productId], references: [id])
+  Options  Option  @relation(fields: [optionId], references: [id])
+}

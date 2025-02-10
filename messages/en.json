@@ -1,0 +1,66 @@
+{
+    "about": {
+        "title": "Our Story",
+        "description": "Founded in 2019, CLUSTER COFFEE has been dedicated to bringing the finest coffee experiences to our community. We source our beans directly from sustainable farms across the globe, ensuring both quality and ethical practices.",
+        "craftsmanship": "Our master roasters carefully craft each batch to perfection, bringing out the unique characteristics of every bean. We believe in creating not just great coffee, but memorable experiences that bring people together.",
+        "stats": {
+            "yearsOfExcellence": "Years of Excellence",
+            "happyCustomers": "Happy Customers",
+            "coffeeOrigins": "Coffee Origins"
+        }
+    },
+    "headers": {
+        "description": "Experience the perfect blend of tradition and innovation in every cup. Handcrafted coffee for true connoisseurs.",
+        "button": "Explore Our Menu"
+    },
+    "feature": {
+        "title": "Featured Menu",
+        "description": "Discover our carefully curated selection of signature drinks and dishes, crafted with precision and passion."
+    },
+    "testimoni": {
+        "title": "What Our Customers Say",
+        "description": "Read what our valued customers have to say about their experiences at CLUSTER COFFEE.",
+        "environment": "Ambiance",
+        "food": "Foods",
+        "drink": "Drinks"
+    },
+    "reservationButton": {
+        "title": "Reserve your Table",
+        "description": "Join us for a perfect coffee experience. Book your table now and enjoy our carefully crafted menu in our cozy atmosphere.",
+        "button": "Make a Reservation"
+    },
+    "footer": {
+        "description": "Crafting perfect moments, one cup at a time.",
+        "contact": "Contact",
+        "hours": {
+            "title": "Hours",
+            "weekdays": "Weekdays : 7am - 8pm",
+            "weekends": "Weekends : 7am - 9pm"
+        },
+        "follow": "Follow Us"
+    },
+    "Reservation": {
+        "title": "Make a Reservation",
+        "description": "Book your table and enjoy the perfect coffee experience",
+        "form": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "date": "Date",
+            "time": "Time",
+            "guests": "Guests",
+            "request": "Special Request",
+            "submit": "Confirm Reservation"
+        },
+        "location": {
+            "title": "Location",
+            "street": "Ratna Niaga No.30, Kota Baru Parahyangan",
+            "place": "Padalarang, Kabupaten Bandung Barat"
+        },
+        "hours": {
+            "title": "Opening Hours",
+            "weekdays": "Weekdays : 7am - 8pm",
+            "weekends": "Weekends : 7am - 9pm"
+        }
+    }
+}

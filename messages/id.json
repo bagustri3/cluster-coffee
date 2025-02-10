@@ -1,0 +1,66 @@
+{
+    "about": {
+        "title": "Kisah Kami",
+        "description": "Didirikan pada tahun 2019, CLUSTER COFFEE berkomitmen untuk menghadirkan pengalaman kopi terbaik bagi komunitas kami. Kami mendapatkan biji kopi langsung dari perkebunan berkelanjutan di seluruh dunia, memastikan kualitas dan praktik etis.",
+        "craftsmanship": "Roaster ahli kami dengan hati-hati memanggang setiap batch hingga sempurna, mengeluarkan karakter unik dari setiap biji kopi. Kami percaya dalam menciptakan tidak hanya kopi yang luar biasa, tetapi juga pengalaman berkesan yang menyatukan orang-orang.",
+        "stats": {
+            "yearsOfExcellence": "Tahun Pengalaman",
+            "happyCustomers": "Pelanggan Bahagia",
+            "coffeeOrigins": "Asal Kopi"
+        }
+    },
+    "headers": {
+        "description": "Rasakan perpaduan sempurna antara tradisi dan inovasi dalam setiap cangkir. Kopi buatan tangan untuk para pencinta sejati.",
+        "button": "Jelajahi Menu Kami"
+    },
+    "feature": {
+        "title": "Menu Unggulan",
+        "description": "Temukan pilihan minuman dan hidangan khas kami yang dirancang dengan presisi dan penuh gairah."
+    },
+    "testimoni": {
+        "title": "Apa Kata Pelanggan Kami",
+        "description": "Baca apa yang pelanggan setia kami katakan tentang pengalaman mereka di CLUSTER COFFEE.",
+        "environment": "Suasana",
+        "food": "Makanan",
+        "drink": "Minuman"
+    },
+    "reservationButton": {
+        "title": "Pesan Meja Anda",
+        "description": "Bergabunglah dengan kami untuk pengalaman kopi yang sempurna. Pesan meja Anda sekarang dan nikmati menu yang dirancang dengan cermat di suasana yang nyaman.",
+        "button": "Buat Reservasi"
+    },
+    "footer": {
+        "description": "Menciptakan momen sempurna, satu cangkir dalam satu waktu.",
+        "contact": "Kontak",
+        "hours": {
+            "title": "Jam Operasional",
+            "weekdays": "Hari Kerja : 7 pagi - 8 malam",
+            "weekends": "Akhir Pekan : 7 pagi - 9 malam"
+        },
+        "follow": "Ikuti Kami"
+    },
+    "Reservation": {
+        "title": "Buat Reservasi",
+        "description": "Pesan meja Anda dan nikmati pengalaman kopi yang sempurna",
+        "form": {
+            "name": "Nama",
+            "email": "Email",
+            "phone": "Telepon",
+            "date": "Tanggal",
+            "time": "Waktu",
+            "guests": "Jumlah Tamu",
+            "request": "Permintaan Khusus",
+            "submit": "Konfirmasi Reservasi"
+        },
+        "location": {
+            "title": "Lokasi",
+            "street": "Ratna Niaga No.30, Kota Baru Parahyangan",
+            "place": "Padalarang, Kabupaten Bandung Barat"
+        },
+        "hours": {
+            "title": "Jam Operasional",
+            "weekdays": "Hari Kerja : 7 pagi - 8 malam",
+            "weekends": "Akhir Pekan : 7 pagi - 9 malam"
+        }
+    }
+}
