@@ -49,7 +49,7 @@ export default function Collaborator() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {collaborator.data.map((c) => (
                             <Link
-                                href={c.Link}
+                                href={c.link}
                                 target="_blank"
                                 key={c.id}
                                 className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
