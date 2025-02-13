@@ -106,44 +106,48 @@ export default function MenuList() {
                                     <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-gray-400 transition-all duration-700 ease-in-out group-hover:w-full"></span>
                                 </button>
                             </div>
-                            {category.data.map((category) => (
-                                <div key={category.name} className="relative">
-                                    {/* Main Category Button */}
-                                    <button
-                                        onClick={() =>
-                                            toggleCategory(category.name)
-                                        }
-                                        className="relative text-gray-600 text-center flex justify-center items-center hover:text-black px-6 py-2 text-lg font-medium group w-full"
+                            {category.data.length &&
+                                category?.data?.map((category) => (
+                                    <div
+                                        key={category.name}
+                                        className="relative"
                                     >
-                                        {category.name}
-                                        {/* Underline Animation (Centered) */}
-                                        <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-gray-400 transition-all duration-700 ease-in-out group-hover:w-full"></span>
-                                    </button>
+                                        {/* Main Category Button */}
+                                        <button
+                                            onClick={() =>
+                                                toggleCategory(category.name)
+                                            }
+                                            className="relative text-gray-600 text-center flex justify-center items-center hover:text-black px-6 py-2 text-lg font-medium group w-full"
+                                        >
+                                            {category.name}
+                                            {/* Underline Animation (Centered) */}
+                                            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-[2px] bg-gray-400 transition-all duration-700 ease-in-out group-hover:w-full"></span>
+                                        </button>
 
-                                    {/* Subcategories Dropdown (Centered) */}
-                                    {openCategory === category.name && (
-                                        <div className="absolute text-gray-600 text-center left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 z-10">
-                                            <ul className="py-2">
-                                                {category.SubCategory.map(
-                                                    (sub, idx) => (
-                                                        <li
-                                                            key={idx}
-                                                            className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                                            onClick={() => {
-                                                                getProducts(
-                                                                    sub.id
-                                                                );
-                                                            }}
-                                                        >
-                                                            {sub.name}
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
+                                        {/* Subcategories Dropdown (Centered) */}
+                                        {openCategory === category.name && (
+                                            <div className="absolute text-gray-600 text-center left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 z-10">
+                                                <ul className="py-2">
+                                                    {category.SubCategory.map(
+                                                        (sub, idx) => (
+                                                            <li
+                                                                key={idx}
+                                                                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                                                onClick={() => {
+                                                                    getProducts(
+                                                                        sub.id
+                                                                    );
+                                                                }}
+                                                            >
+                                                                {sub.name}
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
                         </div>
                     )}
                     {!products.loading && (
