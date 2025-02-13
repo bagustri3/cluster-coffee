@@ -1,12 +1,42 @@
 "use client";
 
 import { Link } from "@/i18n/routing";
-import { InstagramIcon } from "lucide-react";
+import {
+    Facebook,
+    FacebookIcon,
+    Instagram,
+    InstagramIcon,
+    Settings,
+    X,
+    YoutubeIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Footer() {
     const t = useTranslations("footer");
+    const initialState = {
+        setting: {},
+        loading: false,
+    };
+    const [data, setData] = useState(initialState);
+    useEffect(() => {
+        fetch("/api/home")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.setting);
+                setData({
+                    loading: false,
+                    setting: data.setting,
+                });
+            })
+            .catch(() => {
+                setData({
+                    loading: false,
+                    data: null,
+                });
+            });
+    }, []);
     return (
         <footer className="bg-gray-900 text-white py-16">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,8 +66,10 @@ export default function Footer() {
                         <p className="text-gray-400 mb-2">
                             Padalarang, Kabupaten Bandung Barat
                         </p>
-                        <p className="text-gray-400 mb-2">+62 858-5005-0074</p>
-                        <p className="text-gray-400">info@clustercoffee.com</p>
+                        <p className="text-gray-400 mb-2">
+                            {data.setting?.phoneNumber}
+                        </p>
+                        <p className="text-gray-400">{data.setting?.email}</p>
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4">
@@ -53,13 +85,49 @@ export default function Footer() {
                             {t("follow")}
                         </h3>
                         <div className="flex space-x-4">
-                            <a
-                                target="_blank"
-                                href="https://instagram.com/cluster.coffee"
-                                className="text-gray-400 hover:text-white"
-                            >
-                                <InstagramIcon />
-                            </a>
+                            {data.setting?.instagramUrl && (
+                                <a
+                                    target="_blank"
+                                    href={data.setting?.instagramUrl}
+                                    className="text-gray-400 hover:text-white"
+                                >
+                                    <Instagram />
+                                </a>
+                            )}
+                            {data.setting?.facebookUrl && (
+                                <a
+                                    target="_blank"
+                                    href={data.setting?.facebookUrl}
+                                    className="text-gray-400 hover:text-white"
+                                >
+                                    <Facebook />
+                                </a>
+                            )}
+                            {data.setting?.youtubeUrl && (
+                                <a
+                                    target="_blank"
+                                    href={data.setting?.youtubeUrl}
+                                    className="text-gray-400 hover:text-white"
+                                >
+                                    <YoutubeIcon />
+                                </a>
+                            )}
+                            {data.setting?.twitterUrl && (
+                                <a
+                                    target="_blank"
+                                    href={data.setting?.twitterUrl}
+                                    className="text-gray-400 hover:text-white"
+                                >
+                                    <X />
+                                </a>
+                            )}
+                            {data.setting?.whatsappUrl && (
+                                <a
+                                    target="_blank"
+                                    href={data.setting?.whatsappUrl}
+                                    className="text-gray-400 hover:text-white"
+                                ></a>
+                            )}
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,48 @@
+"use client";
+
 import { useTranslations } from "next-intl";
-import React from "react";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function Reservation() {
     const t = useTranslations("Reservation");
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        phoneNumber: "",
+        question: "",
+    });
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        console.log(data);
+
+        if (!data.name || !data.email || !data.phoneNumber || !data.question) {
+            return;
+        }
+
+        const result = await fetch("/api/ask", {
+            method: "POST",
+            body: JSON.stringify(data),
+        });
+
+        if (result.ok) {
+            Swal.fire({
+                title: t("questionSent"),
+                icon: "success",
+                timer: 1000,
+                timerProgressBar: true,
+            });
+        } else {
+            Swal.fire({
+                title: t("questionFailed"),
+                icon: "error",
+                timer: 1000,
+                timerProgressBar: true,
+            });
+        }
+    };
+
     return (
         <section className="py-24 bg-gray-50" id="reservation-page">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +55,12 @@ export default function Reservation() {
                     </p>
                 </div>
                 <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 font-['Poppins']">
-                    <form className="space-y-6">
+                    <form
+                        className="space-y-6"
+                        name="ask-us"
+                        method="POST"
+                        data-netlify="true"
+                    >
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">
@@ -23,8 +68,15 @@ export default function Reservation() {
                                 </label>
                                 <input
                                     type="text"
-                                    className=" mt-1 block w-full text-black border-gray-300 focus:border-black-200 "
-                                    required=""
+                                    className="mt-1 p-2 border rounded-lg block w-full text-black border-gray-300 focus:border-black-200"
+                                    required
+                                    value={data.name}
+                                    onChange={(e) =>
+                                        setData({
+                                            ...data,
+                                            name: e.target.value,
+                                        })
+                                    }
                                 />
                             </div>
                             <div>
@@ -33,62 +85,39 @@ export default function Reservation() {
                                 </label>
                                 <input
                                     type="email"
-                                    className=" mt-1 text-black block w-full border-gray-300 focus:border-black "
-                                    required=""
+                                    className="mt-1 p-2 border rounded-lg text-black block w-full border-gray-300 focus:border-black"
+                                    required
+                                    value={data.email}
+                                    onChange={(e) =>
+                                        setData({
+                                            ...data,
+                                            email: e.target.value,
+                                        })
+                                    }
                                 />
-                            </div>
-                            <div>
-                                <label className="block text-sm  font-medium text-gray-700">
-                                    {t("form.date")}
-                                </label>
-                                <input
-                                    type="date"
-                                    className=" mt-1 text-black block w-full border-gray-300 focus:border-black "
-                                    required=""
-                                />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">
-                                    {t("form.time")}
-                                </label>
-                                <select
-                                    className=" mt-1 text-black block w-full border-gray-300 focus:border-black "
-                                    required=""
-                                >
-                                    <option>9:00 AM</option>
-                                    <option>10:00 AM</option>
-                                    <option>11:00 AM</option>
-                                    <option>12:00 PM</option>
-                                    <option>1:00 PM</option>
-                                    <option>2:00 PM</option>
-                                    <option>3:00 PM</option>
-                                    <option>4:00 PM</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700">
-                                    {t("form.guests")}
-                                </label>
-                                <select
-                                    className=" mt-1 block text-black w-full border-gray-700 focus:border-gray "
-                                    required=""
-                                >
-                                    <option>1 Person</option>
-                                    <option>2 People</option>
-                                    <option>3 People</option>
-                                    <option>4 People</option>
-                                    <option>5+ People</option>
-                                </select>
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">
                                     {t("form.phone")}
                                 </label>
-                                <input
-                                    type="tel"
-                                    className=" mt-1 block w-full border-gray-300 focus:border-gray "
-                                    required=""
-                                />
+                                <div className="relative mt-1">
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                                        +62
+                                    </span>
+                                    <input
+                                        type="tel"
+                                        className="pl-12 pr-4 py-2 text-black border rounded-lg w-full border-gray-300 focus:border-gray-500"
+                                        placeholder="81234567890"
+                                        required
+                                        value={data.phoneNumber}
+                                        onChange={(e) =>
+                                            setData({
+                                                ...data,
+                                                phoneNumber: e.target.value,
+                                            })
+                                        }
+                                    />
+                                </div>
                             </div>
                         </div>
                         <div>
@@ -96,14 +125,21 @@ export default function Reservation() {
                                 {t("form.request")}
                             </label>
                             <textarea
+                                onChange={(e) =>
+                                    setData({
+                                        ...data,
+                                        question: e.target.value,
+                                    })
+                                }
+                                value={data.question}
                                 rows="4"
-                                className=" mt-1 block w-full border-gray-300 focus:border-black "
+                                className="mt-1 text-black p-2 border rounded-lg block w-full border-gray-300 focus:border-black"
                             ></textarea>
                         </div>
                         <div className="mt-6">
                             <button
-                                type="submit"
-                                className="w-full bg-black text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-black/90"
+                                onClick={handleFormSubmit}
+                                className="w-full bg-black text-white px-6 py-3 rounded-lg text-lg font-normal hover:bg-black/90"
                             >
                                 {t("form.submit")}
                             </button>

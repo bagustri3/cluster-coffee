@@ -17,6 +17,18 @@
         "title": "Menu Unggulan",
         "description": "Temukan pilihan minuman dan hidangan khas kami yang dirancang dengan presisi dan penuh gairah."
     },
+    "collaborator": {
+        "title": "Kolaborator Kami",
+        "description": "Bergabunglah bersama kami untuk membuat pengalaman kopi yang tak terlupakan."
+    },
+    "blogs": {
+        "title": "Blog Kami",
+        "description": "Baca berita dan pembaruan terbaru dari blog kami."
+    },
+    "menu": {
+        "title": "Menu Signature Kami",
+        "description": "Dibuat dengan cinta dan keahlian"
+    },
     "testimoni": {
         "title": "Apa Kata Pelanggan Kami",
         "description": "Baca apa yang pelanggan setia kami katakan tentang pengalaman mereka di CLUSTER COFFEE.",
@@ -25,9 +37,9 @@
         "drink": "Minuman"
     },
     "reservationButton": {
-        "title": "Pesan Meja Anda",
-        "description": "Bergabunglah dengan kami untuk pengalaman kopi yang sempurna. Pesan meja Anda sekarang dan nikmati menu yang dirancang dengan cermat di suasana yang nyaman.",
-        "button": "Buat Reservasi"
+        "title": "Memiliki Pertanyaan Tentang Kami?",
+        "description": "Ingin tahu lebih banyak tentang kopi, menu spesial, atau peluang kolaborasi? Kami siap berbagi dan berdiskusi dengan Anda!",
+        "button": "Hubungi Kami"
     },
     "footer": {
         "description": "Menciptakan momen sempurna, satu cangkir dalam satu waktu.",
@@ -40,8 +52,10 @@
         "follow": "Ikuti Kami"
     },
     "Reservation": {
-        "title": "Buat Reservasi",
-        "description": "Pesan meja Anda dan nikmati pengalaman kopi yang sempurna",
+        "title": "Tanya Kami",
+        "questionSent": "Pertanyaan Terkirim!",
+        "questionFailed": "Pertanyaan Gagal Terkirim!",
+        "description": "Tanya kami untuk pengalaman yang lebih baik",
         "form": {
             "name": "Nama",
             "email": "Email",
@@ -49,8 +63,8 @@
             "date": "Tanggal",
             "time": "Waktu",
             "guests": "Jumlah Tamu",
-            "request": "Permintaan Khusus",
-            "submit": "Konfirmasi Reservasi"
+            "request": "Pertanyaan",
+            "submit": "Kirim Pertanyaan"
         },
         "location": {
             "title": "Lokasi",

@@ -1,12 +1,22 @@
 "use client";
 
+import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function About() {
     const t = useTranslations("about");
+    useEffect(() => {
+        if (window.location.hash) {
+            const element = document.getElementById(
+                window.location.hash.slice(1)
+            );
+            if (element) element.scrollIntoView({ behavior: "smooth" });
+        }
+    }, []);
+
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white" id="about">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div className="relative h-[500px]">
@@ -30,20 +40,23 @@ export default function About() {
                             <div>
                                 <p className="text-3xl font-bold text-black mb-2">
                                     {new Date().getFullYear() -
-                                        new Date("1-1-2019").getFullYear()}+
+                                        new Date("1-1-2019").getFullYear()}
+                                    +
                                 </p>
                                 <p className="text-gray-600">
                                     {t("stats.yearsOfExcellence")}
                                 </p>
                             </div>
-                            <div>
+
+                            {/* <div>
                                 <p className="text-3xl font-bold text-black mb-2">
                                     50k+
                                 </p>
                                 <p className="text-gray-600">
                                     {t("stats.happyCustomers")}
                                 </p>
-                            </div>
+                            </div> */}
+                            
                             <div>
                                 <p className="text-3xl font-bold text-black mb-2">
                                     15+

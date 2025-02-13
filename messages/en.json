@@ -17,6 +17,18 @@
         "title": "Featured Menu",
         "description": "Discover our carefully curated selection of signature drinks and dishes, crafted with precision and passion."
     },
+    "collaborator": {
+        "title": "Our Collaborators",
+        "description": "Join us in creating unforgettable coffee experiences."
+    },
+    "blogs": {
+        "title": "Our Blogs",
+        "description": "Discover the latest news and updates from our blog."
+    },
+    "menu": {
+        "title": "Our Craft Menu",
+        "description": "Handcrafted with love and expertise"
+    },
     "testimoni": {
         "title": "What Our Customers Say",
         "description": "Read what our valued customers have to say about their experiences at CLUSTER COFFEE.",
@@ -40,8 +52,10 @@
         "follow": "Follow Us"
     },
     "Reservation": {
-        "title": "Make a Reservation",
-        "description": "Book your table and enjoy the perfect coffee experience",
+        "title": "Ask Us",
+        "questionSent": "Question Sent!",
+        "questionFailed": "Question Failed!",
+        "description": "Ask us for better experience",
         "form": {
             "name": "Name",
             "email": "Email",
@@ -49,8 +63,8 @@
             "date": "Date",
             "time": "Time",
             "guests": "Guests",
-            "request": "Special Request",
-            "submit": "Confirm Reservation"
+            "request": "Questions",
+            "submit": "Send Questions"
         },
         "location": {
             "title": "Location",

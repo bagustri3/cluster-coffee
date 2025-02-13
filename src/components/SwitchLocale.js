@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { useParams } from "next/navigation";
-import { useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { usePathname, useRouter } from "@/i18n/routing";
 
 export default function LocaleSwitcherSelect({
@@ -21,6 +21,36 @@ export default function LocaleSwitcherSelect({
             router.replace({ pathname, params }, { locale: nextLocale });
         });
     }
+
+    const getUserIpv4 = () => {
+        fetch("https://ipv4.iplocation.net")
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem("userIp", data.ip);
+                getLocale(data.ip);
+            });
+    };
+
+    const getLocale = (ipv4) => {
+        const ip = localStorage.getItem("userIp");
+        if (ip) {
+            return;
+        }
+        fetch(`http://ip-api.com/json/${ipv4}`)
+            .then((res) => res.json())
+            .then((data) => {
+                startTransition(() => {
+                    router.replace(
+                        { pathname, params },
+                        { locale: data.countryCode.toLowerCase() }
+                    );
+                });
+            });
+    };
+
+    useEffect(() => {
+        getUserIpv4();
+    }, []);
 
     return (
         <label

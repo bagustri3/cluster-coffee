@@ -20,10 +20,11 @@ model Category {
 }
 
 model SubCategory {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
   name       String
-  categoryId String   @map("questionId") @db.ObjectId
-  Category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String    @map("questionId") @db.ObjectId
+  Category   Category  @relation(fields: [categoryId], references: [id])
+  Product    Product[]
 }
 
 model Client {
@@ -36,10 +37,11 @@ model Client {
 }
 
 model Testimoni {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  food        Int    @default(0)
-  drink       Int    @default(0)
-  environment Int    @default(0)
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  food        Int     @default(0)
+  drink       Int     @default(0)
+  environment Int     @default(0)
+  isFeatured  Boolean @default(false)
 
   Text     String
   clientId String @map("clientId") @db.ObjectId
@@ -47,13 +49,17 @@ model Testimoni {
 }
 
 model Product {
-  id             String          @id @default(auto()) @map("_id") @db.ObjectId
-  name           String
-  slug           String
-  imageUrl       String
-  ingredients    String?
-  description    String
-  price          Int             @default(0)
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  slug        String
+  imageUrl    String
+  isFeatured  Boolean @default(false)
+  ingredients String?
+  description String
+  price       Int     @default(0)
+
+  categoryId     String          @map("categoryId") @db.ObjectId
+  Category       SubCategory     @relation(fields: [categoryId], references: [id])
   ProductOptions ProductOption[]
 }
 
@@ -61,13 +67,17 @@ model Option {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
   name String
 
-  ProductOption ProductOption[]
+  ProductOption    ProductOption[]
+  AdditionalOption AdditionalOption[]
 }
 
 model AdditionalOption {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   name  String
   price Int
+
+  optionId String @map("optionId") @db.ObjectId
+  Option   Option @relation(fields: [optionId], references: [id])
 }
 
 model ProductOption {
@@ -77,4 +87,46 @@ model ProductOption {
 
   Products Product @relation(fields: [productId], references: [id])
   Options  Option  @relation(fields: [optionId], references: [id])
+}
+
+model Question {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  phoneNumber String
+  email       String
+  question    String? @db.String
+}
+
+model Collaborator {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  imageUrl    String
+  description String
+  field       String
+  link        String
+}
+
+model Setting {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  instagramUrl      String?
+  facebookUrl       String?
+  whatsappUrl       String?
+  twitterUrl        String?
+  youtubeUrl        String?
+  email             String?
+  phoneNumber       String?
+  footerText        String?
+  imgur_accessToken String?
+  imgurClientId     String?
+  imgurClientSecret String?
+  imgurRefreshToken String?
+}
+
+model Article {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String
+  imageUrl    String
+  description String
+  content     String
 }
