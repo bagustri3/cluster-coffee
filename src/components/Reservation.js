@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 export default function Reservation() {
     const t = useTranslations("Reservation");
+    const tF = useTranslations("footer");
     const [data, setData] = useState({
         name: "",
         email: "",
@@ -150,34 +151,23 @@ export default function Reservation() {
                         <div className="bg-white p-6 rounded-lg shadow-sm">
                             <i className="fas fa-clock text-3xl text-custom"></i>
                             <h3 className="mt-4 text-lg font-medium text-gray-900">
-                                Opening Hours
+                                {tF("hours.title")}
                             </h3>
                             <p className="mt-2 text-gray-600">
-                                Mon-Fri: 7am - 7pm
-                                <br />
-                                Sat-Sun: 8am - 6pm
+                                {tF("hours.weekdays")}
+                                <br className="my-1"/>
+                                {tF("hours.weekends")}
                             </p>
                         </div>
                         <div className="bg-white p-6 rounded-lg shadow-sm">
                             <i className="fas fa-map-marker-alt text-3xl text-custom"></i>
                             <h3 className="mt-4 text-lg font-medium text-gray-900">
-                                Location
+                                {t("location.title")}
                             </h3>
                             <p className="mt-2 text-gray-600">
-                                123 Coffee Street
+                                {t("location.street")}
                                 <br />
-                                New York, NY 10001
-                            </p>
-                        </div>
-                        <div className="bg-white p-6 rounded-lg shadow-sm">
-                            <i className="fas fa-map-marker-alt text-3xl text-custom"></i>
-                            <h3 className="mt-4 text-lg font-medium text-gray-900">
-                                Location
-                            </h3>
-                            <p className="mt-2 text-gray-600">
-                                123 Coffee Street
-                                <br />
-                                New York, NY 10001
+                                {t("location.place")}
                             </p>
                         </div>
                     </div>
