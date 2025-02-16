@@ -37,12 +37,12 @@
         "drink": "Drinks"
     },
     "reservationButton": {
-        "title": "Reserve your Table",
-        "description": "Join us for a perfect coffee experience. Book your table now and enjoy our carefully crafted menu in our cozy atmosphere.",
-        "button": "Make a Reservation"
+        "title": "Have a Question?",
+        "description": "Want to know more about our coffee, menu specials, or collaboration opportunities? We're here to help!",
+        "button": "Contact Us"
     },
     "footer": {
-        "description": "Crafting perfect moments, one cup at a time.",
+        "description": "Coffee can be a medium to help us enter certain moments.",
         "contact": "Contact",
         "hours": {
             "title": "Hours",

@@ -6,6 +6,14 @@ import React, { useEffect, useState } from "react";
 
 export default function Feature({ products = [] }) {
     const t = useTranslations("feature");
+
+    const truncateText = (text, wordLimit = 20) => {
+        return (
+            text.split(" ").slice(0, wordLimit).join(" ") +
+            (text.split(" ").length > wordLimit ? "..." : "")
+        );
+    };
+
     return (
         <section className="py-24 bg-gray-50">
             <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -35,7 +43,7 @@ export default function Feature({ products = [] }) {
                                         {product.name}
                                     </h3>
                                     <p className="text-gray-600 mb-4">
-                                        {product.description}
+                                        {truncateText(product.description)}
                                     </p>
                                     <p className="text-black font-semibold">
                                         {new Intl.NumberFormat("id-ID", {

@@ -11,7 +11,11 @@ export async function GET(_, { params }) {
             include: {
                 ProductOptions: {
                     include: {
-                        Options: true,
+                        Options: {
+                            include: {
+                                AdditionalOption: true,
+                            },
+                        },
                     },
                 },
                 Category: {
@@ -22,9 +26,19 @@ export async function GET(_, { params }) {
             },
         });
 
-        return Response.json({ product });
+        return Response.json(
+            { product },
+            {
+                status: 200,
+            }
+        );
     } catch (e) {
-        return Response.json({ message: e.message, e: JSON.stringify(e) });
+        return Response.json(
+            { message: e.message, e: JSON.stringify(e) },
+            {
+                status: 500,
+            }
+        );
     }
 }
 

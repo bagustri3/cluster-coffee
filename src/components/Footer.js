@@ -24,7 +24,6 @@ export default function Footer() {
         fetch("/api/home")
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.setting);
                 setData({
                     loading: false,
                     setting: data.setting,
@@ -54,31 +53,35 @@ export default function Footer() {
                                 className="h-11"
                             />
                         </div>
-                        <p className="text-gray-400">{t("description")}</p>
+                        <p className="text-gray-400 italic font-normal w-full md:w-1/2">{t("description")}</p>
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4">
                             {t("contact")}
                         </h3>
-                        <p className="text-gray-400 mb-2">
+                        <p className="text-gray-400 font-normal mb-2">
                             Ratna Niaga No.30, Kota Baru Parahyangan
                         </p>
-                        <p className="text-gray-400 mb-2">
+                        <p className="text-gray-400 font-normal mb-2">
                             Padalarang, Kabupaten Bandung Barat
                         </p>
-                        <p className="text-gray-400 mb-2">
+                        <p className="text-gray-400 font-normal mb-2">
                             {data.setting?.phoneNumber}
                         </p>
-                        <p className="text-gray-400">{data.setting?.email}</p>
+                        <p className="text-gray-400 font-normal">
+                            {data.setting?.email}
+                        </p>
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4">
                             {t("hours.title")}
                         </h3>
-                        <p className="text-gray-400 mb-2">
+                        <p className="text-gray-400 font-normal mb-2">
                             {t("hours.weekdays")}
                         </p>
-                        <p className="text-gray-400">{t("hours.weekends")}</p>
+                        <p className="text-gray-400 font-normal">
+                            {t("hours.weekends")}
+                        </p>
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4">
@@ -131,9 +134,9 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <div className="border-t font-normal border-gray-800 mt-12 pt-8 text-center text-gray-400">
                     <p>
-                        &copy; {new Date().getFullYear()} Cluster Coffee. All
+                        Cluster Coffee &copy; {new Date().getFullYear()}. All
                         rights reserved.
                     </p>
                 </div>

@@ -28,24 +28,16 @@ model SubCategory {
 }
 
 model Client {
-  id         String      @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  imageUrl   String?
-  profession String?
-  link       String?
-  Testimoni  Testimoni[]
-}
-
-model Testimoni {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  imageUrl    String?
+  profession  String?
+  link        String?
   food        Int     @default(0)
   drink       Int     @default(0)
   environment Int     @default(0)
   isFeatured  Boolean @default(false)
-
-  Text     String
-  clientId String @map("clientId") @db.ObjectId
-  Client   Client @relation(fields: [clientId], references: [id])
+  Text        String
 }
 
 model Product {

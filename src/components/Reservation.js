@@ -15,7 +15,6 @@ export default function Reservation() {
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        console.log(data);
 
         if (!data.name || !data.email || !data.phoneNumber || !data.question) {
             return;

@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "@/i18n/routing";
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
@@ -153,7 +154,8 @@ export default function MenuList() {
                     {!products.loading && (
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                             {products.products.map((e) => (
-                                <div
+                                <Link
+                                    href={`/menu/${e.slug}`}
                                     key={e.id}
                                     className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
                                 >
@@ -177,7 +179,7 @@ export default function MenuList() {
                                             maximumFractionDigits: 0,
                                         }).format(e.price)}
                                     </p>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     )}

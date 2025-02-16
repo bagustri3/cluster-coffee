@@ -12,13 +12,9 @@ export async function GET(req, res) {
             },
         });
 
-        const testimoni = await prisma.testimoni.findMany({
+        const testimoni = await prisma.client.findMany({
             where: {
                 isFeatured: true,
-            },
-            take: 6,
-            orderBy: {
-                id: "desc",
             },
         });
 
@@ -35,9 +31,18 @@ export async function GET(req, res) {
             },
         });
 
-        return Response.json({ featured, testimoni, setting });
+        return Response.json(
+            { featured, testimoni, setting },
+            {
+                status: 200,
+            }
+        );
     } catch (e) {
-        console.log(JSON.stringify(e));
-        return Response.json({ _e: JSON.stringify(e), message: e.message });
+        return Response.json(
+            { _e: JSON.stringify(e), message: e.message },
+            {
+                status: 500,
+            }
+        );
     }
 }

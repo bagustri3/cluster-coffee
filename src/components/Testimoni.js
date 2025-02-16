@@ -21,26 +21,29 @@ export default function Testimoni({ testimoni = [] }) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {testimoni.length &&
                         testimoni.map((te) => (
-                            <div className="bg-gray-50 p-8 rounded-lg">
+                            <div
+                                key={te.id}
+                                className="bg-gray-50 p-8 rounded-lg"
+                            >
                                 <p className="text-gray-600 text-sm mb-6">
                                     {te.Text}
                                 </p>
                                 <Link
-                                    href={"https://instagram.com/arcade_design"}
+                                    href={te.link}
                                     target="_blank"
                                     className="flex items-center"
                                 >
                                     <img
-                                        src="https://i.imgur.com/b9ukdhr.jpeg"
+                                        src={te.imageUrl}
                                         className="w-12 h-12 rounded-full mr-4"
                                         alt="Eddy Shen Sutedja"
                                     />
                                     <div>
                                         <p className="font-semibold text-gray-900">
-                                            Eddy Shen Sutedja
+                                            {te.name}
                                         </p>
                                         <p className="text-gray-600 text-sm">
-                                            Principal Architect
+                                            {te.profession}
                                         </p>
                                     </div>
                                 </Link>
