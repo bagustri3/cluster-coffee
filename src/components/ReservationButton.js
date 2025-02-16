@@ -17,7 +17,7 @@ export default function ReservationButton() {
                         {t("description")}
                     </p>
                     <Link
-                        href={"/reservation"}
+                        href={"/contact-us"}
                         className="rounded-xl bg-white text-black px-8 py-3 text-lg font-medium hover:bg-gray-100"
                     >
                         {t("button")}
